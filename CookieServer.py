@@ -46,7 +46,7 @@ class NameHandler(BaseHTTPRequestHandler):
         # 1. Set the fields of the cookie.
         #    Give the cookie a value from the 'yourname' variable,
         #    a domain (localhost), and a max-age.
-        c["yourname"] = "testname"
+        c["yourname"] = yourname
         c["yourname"]["max-age"] = 300
         c["yourname"]["domain"] = "localhost"
 
