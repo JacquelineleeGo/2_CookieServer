@@ -66,7 +66,7 @@ class NameHandler(BaseHTTPRequestHandler):
                 # 2. Extract and decode the cookie.
                 #    Get the cookie from the headers and extract its value
                 #    into a variable called 'name'.
-                in_cookie = cookies(self.headers["Cookie"])
+                in_cookie = cookies.SimpleCookie(self.headers["Cookie"])
                 name = in_cookie["yourname"].value
                 # Craft a message, escaping any HTML special chars in name.
                 message = "Hey there, " + html_escape(name)
