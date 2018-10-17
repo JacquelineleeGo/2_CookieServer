@@ -46,7 +46,7 @@ class NameHandler(BaseHTTPRequestHandler):
         # 1. Set the fields of the cookie.
         #    Give the cookie a value from the 'yourname' variable,
         #    a domain (localhost), and a max-age.
-        c["yourname"] = "JingLi"
+        c["yourname"] = "testname"
         c["yourname"]["max-age"] = 300
         c["yourname"]["domain"] = "localhost"
 
@@ -66,7 +66,8 @@ class NameHandler(BaseHTTPRequestHandler):
                 # 2. Extract and decode the cookie.
                 #    Get the cookie from the headers and extract its value
                 #    into a variable called 'name'.
-
+                in_cookie = cookies(self.headers["Cookie"])
+                name = in_cookie["yourname"].value
                 # Craft a message, escaping any HTML special chars in name.
                 message = "Hey there, " + html_escape(name)
             except (KeyError, cookies.CookieError) as e:
