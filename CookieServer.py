@@ -2,10 +2,12 @@
 #
 # An HTTP server that remembers your name (in a cookie)
 #
-# In this exercise, you'll create and read a cookie to remember the name
-# that the user submits in a form.  There are two things for you to do here:
+# In this exercise, you'll create and read a cookie to remember
+# the name that the user submits in a form.  There are two things
+# for you to do here:
 #
-# 1. Set the relevant fields of the cookie:  its value, domain, and max-age.
+# 1. Set the relevant fields of the cookie:  its value, domain,
+# and max-age.
 #
 # 2. Read the cookie value into a variable.
 
@@ -44,6 +46,9 @@ class NameHandler(BaseHTTPRequestHandler):
         # 1. Set the fields of the cookie.
         #    Give the cookie a value from the 'yourname' variable,
         #    a domain (localhost), and a max-age.
+        c["yourname"] = "JingLi"
+        c["yourname"]["max-age"] = 300
+        c["yourname"]["domain"] = "localhost"
 
         # Send a 303 back to the root page, with a cookie!
         self.send_response(303)  # redirect via GET
